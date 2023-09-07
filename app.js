@@ -14,7 +14,7 @@ app.get("/api", (req, res) => {
     let slack_name = req.query.slack_name
     let track = req.query.track
 
-    let date = new Date()
+    let date = new Date().toISOString().slice(0, -5) + 'Z';
 
     res.status(200).json({
         "slack_name": `${slack_name}`,
