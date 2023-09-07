@@ -10,7 +10,7 @@ const headSetter = (req, res, next) => {
 }
 
 app.use(headSetter)
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
     let slack_name = req.query.slack_name
     let track = req.query.track
 
