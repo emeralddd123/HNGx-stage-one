@@ -2,6 +2,14 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
+const headSetter = (req, res, next) => {
+    res.setHeader('Content-Type', 'application/json')
+    res.setHeader('Access-Control-Allow-Origin', '*')
+
+    next()
+}
+
+app.use(headSetter)
 app.get("/", (req, res) => {
     let slack_name = req.query.slack_name
     let track = req.query.track
@@ -9,17 +17,17 @@ app.get("/", (req, res) => {
     let date = new Date()
 
     res.status(200).json({
-        "slack_name":`${slack_name}`,
-        "current_day":"Thursday",
-        "utc_time":`${date}`,
-        "track":`${track}`,
-        "github_file_url":"https://github.com/emeralddd123/HNGx-stage-one/blob/main/app.js",
-        "github_repo_url":"https://github.com/emeralddd123/HNGx-stage-one",
-        "status_code":200
+        "slack_name": `${slack_name}`,
+        "current_day": "Thursday",
+        "utc_time": `${date}`,
+        "track": `${track}`,
+        "github_file_url": "https://github.com/emeralddd123/HNGx-stage-one/blob/main/app.js",
+        "github_repo_url": "https://github.com/emeralddd123/HNGx-stage-one",
+        "status_code": 200
     })
 });
 
 app.get("*", (req, res) => {
-    res.status(404).json({"error":"Page not found"})
+    res.status(404).json({ "error": "Page not found" })
 })
 app.listen(port, () => console.log(`App listening on port ${port}!`));
