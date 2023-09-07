@@ -17,15 +17,15 @@
 
 <h3>Result in JSON</h3>
 
-<pre id="json-data">
+<pre>
 {
-  "slack_name": "example_name",
-  "current_day": "Monday",
-  "utc_time": "2023-08-21T15:04:05Z",
-  "track": "backend",
-  "github_file_url": "<https://github.com/username/repo/blob/main/file_name.ext>",
-  "github_repo_url": "<https://github.com/username/repo>",
-  “status_code”: 200
+    "slack_name": "HNGx",
+    "current_day": "Thursday",
+    "utc_time": "2023-09-07T21:17:00Z",
+    "track": "backend",
+    "github_file_url": "https://github.com/emeralddd123/HNGx-stage-one/blob/main/app.js",
+    "github_repo_url": "https://github.com/emeralddd123/HNGx-stage-one",
+    "status_code": 200
 }
 </pre>
 
