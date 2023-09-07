@@ -18,4 +18,8 @@ app.get("/", (req, res) => {
         "status_code":200
     })
 });
+
+app.get("*", (req, res) => {
+    res.status(404).json({"error":"Page not found"})
+})
 app.listen(port, () => console.log(`App listening on port ${port}!`));
