@@ -14,12 +14,16 @@ app.get("/api", (req, res) => {
     let slack_name = req.query.slack_name
     let track = req.query.track
 
-    let date = new Date().toISOString().slice(0, -5) + 'Z';
+    let currentDate = new Date()
+    let utc_time = currentDate.toISOString().slice(0, -5) + 'Z';
+    const currentDayNumber = currentDate.getDay();
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const currentDayName = daysOfWeek[currentDayNumber];
 
     const details = {
         "slack_name": `${slack_name}`,
-        "current_day": "Thursday",
-        "utc_time": `${date}`,
+        "current_day": `${currentDayName}`,
+        "utc_time": `${utc_time}`,
         "track": `${track}`,
         "github_file_url": "https://github.com/emeralddd123/HNGx-stage-one/blob/main/app.js",
         "github_repo_url": "https://github.com/emeralddd123/HNGx-stage-one",
