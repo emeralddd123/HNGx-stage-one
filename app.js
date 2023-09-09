@@ -16,7 +16,7 @@ app.get("/api", (req, res) => {
 
     let date = new Date().toISOString().slice(0, -5) + 'Z';
 
-    res.status(200).json({
+    const details = {
         "slack_name": `${slack_name}`,
         "current_day": "Thursday",
         "utc_time": `${date}`,
@@ -24,7 +24,8 @@ app.get("/api", (req, res) => {
         "github_file_url": "https://github.com/emeralddd123/HNGx-stage-one/blob/main/app.js",
         "github_repo_url": "https://github.com/emeralddd123/HNGx-stage-one",
         "status_code": 200
-    })
+    }
+    res.status(200).json(details)
 });
 
 app.get("*", (req, res) => {
